@@ -1,4 +1,4 @@
-# Website
+# Serverless Plus Website
 
 This website is built using [Docusaurus 2](https://v2.docusaurus.io/), a modern static website generator.
 
@@ -27,10 +27,10 @@ This command generates static content into the `build` directory and can be serv
 ### Deployment
 
 ```
-$ GIT_USER=<Your GitHub username> USE_SSH=true yarn deploy
+$ sls deploy
 ```
 
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+> Notice: If you don't want to scan QR code, you can setup credentials for Tencent Cloud in `.env` file like `.env.example`.
 
 ### Continuous Integration
 
@@ -39,3 +39,9 @@ Some common defaults for linting/formatting have been set for you. If you integr
 ```
 $ yarn ci
 ```
+
+### License
+
+MIT License
+
+Copyright (c) 2020 Serverless Plus

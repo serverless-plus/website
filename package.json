@@ -1,12 +1,11 @@
 {
-  "name": "serverless-docs",
-  "version": "0.0.0",
-  "private": true,
+  "name": "serverless-plus-website",
+  "version": "0.1.0",
   "scripts": {
     "start": "docusaurus start",
     "build": "docusaurus build",
     "swizzle": "docusaurus swizzle",
-    "deploy": "docusaurus deploy",
+    "deploy": "sls deploy",
     "ci": "yarn lint && yarn prettier:diff",
     "lint": "eslint --cache \"**/*.js\" && stylelint \"**/*.css\"",
     "prettier": "prettier --config .prettierrc --write \"**/*.{js,md}\"",
@@ -44,5 +43,26 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "description": "Every thing about Serverless Framework Development.",
+  "main": ".eslintrc.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/serverless-plus/website.git"
+  },
+  "keywords": [
+    "serverless",
+    "serverelss-plus",
+    "serverless-framework",
+    "webiste"
+  ],
+  "author": "yugasun",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/serverless-plus/website/issues"
+  },
+  "homepage": "https://github.com/serverless-plus/website#readme"
 }
