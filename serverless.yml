@@ -1,0 +1,17 @@
+org: serverless-plus
+app: serverless
+stage: dev
+component: website
+name: serverless-plus-website
+
+inputs:
+  src:
+    # hook and dist configs are for frontend build
+    dist: ./build
+    hook: npm run build
+    index: index.html
+    error: index.html
+    websitePath: ./
+  region: ap-guangzhou
+  bucketName: serverless-plus-website
+  protocol: http
