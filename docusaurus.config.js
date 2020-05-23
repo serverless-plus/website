@@ -14,8 +14,11 @@ module.exports = {
   baseUrl: '/',
   favicon: 'img/favicon.ico',
   organizationName: 'Serverless Plus', // Usually your GitHub org/user name.
-  projectName: 'serverless-plus-site', // Usually your repo name.
+  projectName: 'website', // Usually your repo name.
   themeConfig: {
+    gtag: {
+      trackingID: 'UA-85991013-6',
+    },
     navbar: {
       title: 'Serverless Plus',
       logo: {
