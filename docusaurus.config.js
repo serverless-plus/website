@@ -26,13 +26,13 @@ module.exports = {
         src: 'img/logo.png',
       },
       links: [
+        {to: 'blog', label: 'Blog', position: 'left'},
         {
           to: 'docs/',
           activeBasePath: 'docs',
           label: 'Docs',
           position: 'left',
         },
-        {to: 'blog', label: 'Blog', position: 'left'},
         // Please keep GitHub link to the right for consistency.
         {
           href: 'https://github.com/serverless-plus/website',
