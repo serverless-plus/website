@@ -14,4 +14,4 @@ inputs:
     websitePath: ./
   region: ap-guangzhou
   bucketName: serverless-plus-website
-  protocol: http
+  protocol: https
