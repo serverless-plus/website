@@ -1,0 +1,12 @@
+org: serverless-plus
+app: serverless
+stage: dev
+component: cdn
+name: serverless-plus-cdn
+
+inputs:
+  domain: sls.plus
+  onlyRefesh: true
+  refreshCdn:
+    urls:
+      - https://sls.plus

@@ -4,13 +4,13 @@ This website is built using [Docusaurus 2](https://v2.docusaurus.io/), a modern 
 
 ### Installation
 
-```
+```bash
 $ yarn
 ```
 
 ### Local Development
 
-```
+```bash
 $ yarn start
 ```
 
@@ -18,7 +18,7 @@ This command starts a local development server and open up a browser window. Mos
 
 ### Build
 
-```
+```bash
 $ yarn build
 ```
 
@@ -26,7 +26,7 @@ This command generates static content into the `build` directory and can be serv
 
 ### Deployment
 
-```
+```bash
 $ sls deploy
 ```
 
@@ -36,8 +36,16 @@ $ sls deploy
 
 Some common defaults for linting/formatting have been set for you. If you integrate your project with an open source Continuous Integration system (e.g. Travis CI, CircleCI), you may check for issues using the following command.
 
-```
+```bash
 $ yarn ci
+```
+
+### CDN Refresh
+
+Copy `cdn/serverless.example.yml` to `cdn/serverless.yml`, and change it to your Tencent CDN Domain, then run:
+
+```bash
+$ yarn cdn:refresh
 ```
 
 ### License

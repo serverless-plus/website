@@ -87,8 +87,17 @@ module.exports = {
             },
           ],
         },
+        {
+          title: 'Friend Links',
+          items: [
+            {
+              label: 'ServerlessChina',
+              href: 'https://www.serverlesschina.com/',
+            },
+          ],
+        },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} Serverelss Plus, Inc. Built with <a href="https://v2.docusaurus.io/" target="_blank">Docusaurus</a>.`,
+      copyright: `Copyright © ${new Date().getFullYear()} Serverelss Plus. Built with <a href="https://v2.docusaurus.io/" target="_blank">Docusaurus</a>.`,
     },
   },
   presets: [
