@@ -1,17 +1,16 @@
 ---
-id: config-website
 title: Website Configuration
-sidebar_label: Website
+sidebar_label: Configuration
 ---
 
 # 配置文档
 
 ## 全量参数
 
-```yaml
+```yml
 # serverless.yml
 
-component: website
+component: tencent-website
 name: websitedemo
 org: test
 app: websiteApp
@@ -19,10 +18,9 @@ stage: dev
 
 inputs:
   src:
+    root: ./
     src: ./src
-    # hook and dist configs are for frontend build
-    # dist: ./dist
-    # hook: npm run build
+    hook: npm run build
     index: index.html
     error: index.html
     websitePath: ./
@@ -30,7 +28,7 @@ inputs:
   bucketName: my-bucket
   protocol: http
   hosts:
-    - host: abc.cn
+    - host: anycoder.cn
     - host: abc.com
       async: true
       autoRefesh: true
@@ -73,7 +71,7 @@ inputs:
           # certificate: 'xxx'
           # privateKey: 'xxx'
   env:
-    API_URL: https:#api.com
+    API_URL: https://api.com
   cors:
     - allowedOrigins:
         - '*.tencent.com'
@@ -121,13 +119,13 @@ inputs:
 
 ### 跨域配置
 
-参考： https:#cloud.tencent.com/document/product/436/8279
+参考： https://cloud.tencent.com/document/product/436/8279
 
 | 参数 | 是否必选 | 类型 | Description |
 | --- | :-: | --- | :-- |
 | id | 否 | String | 规则 ID |
 | allowedMethods | 是 | String[] | 允许的 HTTP 操作，枚举值：GET，PUT，HEAD，POST，DELETE |
-| allowedOrigins | 是 | String[] | 允许的访问来源，支持通配符`*`，格式为：`协议:#域名[:端口]`，例如：`http:#www.qq.com` |
+| allowedOrigins | 是 | String[] | 允许的访问来源，支持通配符`*`，格式为：`协议://域名[:端口]`，例如：`http://www.qq.com` |
 | allowedHeaders | 是 |  | 在发送 OPTIONS 请求时告知服务端，接下来的请求可以使用哪些自定义的 HTTP 请求头部，支持通配符`*` |
 | maxAgeSeconds | shi |  | 设置 OPTIONS 请求得到结果的有效期 |
 
@@ -137,14 +135,22 @@ inputs:
 | --- | --- | --- | --- |
 | async | 否 | `false` | 是否为异步操作，如果为 true，则不会等待 CDN 创建或更新成功再返回， |
 | autoRefesh | 否 | `false` | 是否自动刷新预热 CDN |
+| onlyRefesh | 否 | `false` | 是否只刷新预热 CDN，如果为 `true`，那么只进行刷新预热操作，不会更新 CDN 配置 |
+| refreshCdn | 否 |  | 刷新 CDN 相关配置，参考 [refreshCdn](#refreshCdn) |
 | host | 是 |  | 需要接入的 CDN 域名。 |
 | host | 是 |  | 需要接入的 CDN 域名。 |
-| https | 否 |  | Https 加速配置，参考：https:#cloud.tencent.com/document/api/228/30987#Https |
-| cacheKey | 否 |  | 节点缓存键配置，参考：https:#cloud.tencent.com/document/api/228/30987#CacheKey |
-| cache | 否 |  | 缓存过期时间配置，参考： https:#cloud.tencent.com/document/api/228/30987#Cache |
-| referer | 否 | '' | 防盗链设置，参考： https:#cloud.tencent.com/document/api/228/30987#Referer |
-| ipFilter | 否 | '' | IP 黑白名单配置，参考： https:#cloud.tencent.com/document/api/228/30987#IpFilter |
+| https | 否 |  | Https 加速配置，参考：https://cloud.tencent.com/document/api/228/30987#Https |
+| cacheKey | 否 |  | 节点缓存键配置，参考：https://cloud.tencent.com/document/api/228/30987#CacheKey |
+| cache | 否 |  | 缓存过期时间配置，参考： https://cloud.tencent.com/document/api/228/30987#Cache |
+| referer | 否 | '' | 防盗链设置，参考： https://cloud.tencent.com/document/api/228/30987#Referer |
+| ipFilter | 否 | '' | IP 黑白名单配置，参考： https://cloud.tencent.com/document/api/228/30987#IpFilter |
 
 > 注意：`async` 参数对于配置多个 CDN 域名需求，或者在 CI 流程中时，建议配置成 `true`，不然会导致 serverless cli 执行超时，或者 CI 流程超时。
 
-更多配置，请移至官方云 API 文档：https:#cloud.tencent.com/document/product/228/41123
+#### refreshCdn
+
+| 参数名称 | 是否必选 | 默认 | 描述                |
+| -------- | -------- | ---- | ------------------- |
+| urls     | 否       | []   | 需要刷新的 CDN 路径 |
+
+更多配置，请移至官方云 API 文档：https://cloud.tencent.com/document/product/228/41123

@@ -9,15 +9,104 @@
 
 module.exports = {
   docs: {
-    Components: ['website', 'scf', 'express', 'koa', 'egg', 'next', 'nuxt'],
-    Configuration: [
-      'config/config-website',
-      'config/config-scf',
-      'config/config-express',
-      'config/config-koa',
-      'config/config-egg',
-      'config/config-next',
-      'config/config-nuxt',
+    Introduction: ['index'],
+    Components: [
+      {
+        Website: [
+          {
+            id: 'website',
+            type: 'doc',
+          },
+          {
+            id: 'config/website',
+            type: 'doc',
+          },
+        ],
+      },
+      {
+        SCF: [
+          {
+            id: 'scf',
+            type: 'doc',
+          },
+          {
+            id: 'config/scf',
+            type: 'doc',
+          },
+        ],
+      },
+      {
+        'Express.js': [
+          {
+            id: 'express',
+            type: 'doc',
+          },
+          {
+            id: 'config/express',
+            type: 'doc',
+          },
+        ],
+      },
+      {
+        'Koa.js': [
+          {
+            id: 'koa',
+            type: 'doc',
+          },
+          {
+            id: 'config/koa',
+            type: 'doc',
+          },
+        ],
+      },
+      {
+        'Egg.js': [
+          {
+            id: 'egg',
+            type: 'doc',
+          },
+          {
+            id: 'config/egg',
+            type: 'doc',
+          },
+        ],
+      },
+      {
+        'Next.js': [
+          {
+            id: 'next',
+            type: 'doc',
+          },
+          {
+            id: 'config/next',
+            type: 'doc',
+          },
+        ],
+      },
+      {
+        'Nuxt.js': [
+          {
+            id: 'nuxt',
+            type: 'doc',
+          },
+          {
+            id: 'config/nuxt',
+            type: 'doc',
+          },
+        ],
+      },
+      {
+        PostgreSQL: [
+          {
+            id: 'postgresql',
+            type: 'doc',
+          },
+          {
+            id: 'config/postgresql',
+            type: 'doc',
+          },
+        ],
+      },
     ],
   },
 };

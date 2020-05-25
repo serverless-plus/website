@@ -1,6 +1,7 @@
 ---
 id: website
 title: Website
+sidebar_label: Introduction
 ---
 
 [![Serverless Components](https://img.serverlesscloud.cn/202019/1578569597879-website.png)](http://serverless.com)

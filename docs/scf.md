@@ -1,6 +1,7 @@
 ---
 id: scf
 title: SCF
+sidebar_label: Introduction
 ---
 
 [![Serverless Components](https://img.serverlesscloud.cn/202047/1586246008932-Tencent%20SCF_%E9%95%BF.png)](http://serverless.com)

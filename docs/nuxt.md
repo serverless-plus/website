@@ -1,6 +1,7 @@
 ---
 id: nuxt
 title: Nuxt.js
+sidebar_label: Introduction
 ---
 
 [![Serverless Nuxtjs Tencent Cloud](https://img.serverlesscloud.cn/2020310/1583829094342-nuxt.js%20_%E9%95%BF.png)](http://serverless.com)

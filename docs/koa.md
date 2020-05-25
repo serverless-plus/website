@@ -1,6 +1,7 @@
 ---
 id: koa
 title: Koa.js
+sidebar_label: Introduction
 ---
 
 [![Serverless Koa Tencent Cloud](https://img.serverlesscloud.cn/20191226/1577361724216-koajs_width.png)](http://serverless.com)

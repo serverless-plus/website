@@ -1,6 +1,7 @@
 ---
 id: egg
 title: Egg.js
+sidebar_label: Introduction
 ---
 
 [![Serverless Egg Tencent Cloud](https://img.serverlesscloud.cn/20191226/1577361751088-egg_width.png)](http://serverless.com)

@@ -1,10 +1,7 @@
 ---
-id: config-egg
 title: Egg.js Configuration
-sidebar_label: Egg.js
+sidebar_label: Configuration
 ---
-
-# 配置文档
 
 ## 全部配置
 
@@ -84,14 +81,14 @@ inputs:
 | functionName | 否 |  | 云函数名称 |
 | serviceName | 否 |  | API 网关服务名称, 默认创建一个新的服务名称 |
 | serviceId | 否 |  | API 网关服务 ID,如果存在将使用这个 API 网关服务 |
-| src | 否 | `process.cwd()` | 默认为当前目录, 如果是对象, 配置参数参考 [执行目录](#src-object) |
-| layers | 否 |  | 云函数绑定的 layer, 配置参数参考 [层配置](#layer) |
+| src | 否 | `process.cwd()` | 默认为当前目录, 如果是对象, 配置参数参考 [执行目录](#执行目录) |
+| layers | 否 |  | 云函数绑定的 layer, 配置参数参考 [层配置](#层配置) |
 | exclude | 否 |  | 不包含的文件 |
 | include | 否 |  | 包含的文件, 如果是相对路径，是相对于 `serverless.yml`的路径 |
-| [functionConf](#funtionConf) | 否 |  | 函数配置 |
-| [apigatewayConf](#apigatewayConf) | 否 |  | API 网关配置 |
-| [cloudDNSConf](#cloudDNSConf) | 否 |  | DNS 配置 |
-| [Region special config](#apigatewayConf) | 否 |  | 指定区配置 |
+| [functionConf](#函数配置) | 否 |  | 函数配置 |
+| [apigatewayConf](#API-网关配置) | 否 |  | API 网关配置 |
+| [cloudDNSConf](#DNS-配置) | 否 |  | DNS 配置 |
+| [Region special config](#指定区配置) | 否 |  | 指定区配置 |
 
 ## 执行目录
 
@@ -120,11 +117,11 @@ inputs:
 
 ### 指定区配置
 
-| 参数名称 | 是否必选 | 类型 | 默认值 | 函数 |
-| --- | :-: | --- | --- | --- |
-| [functionConf](#funtionConf) | 否 | Object |  | 函数配置 |
-| [apigatewayConf](#apigatewayConf) | 否 | Object |  | API 网关配置 |
-| [cloudDNSConf](#cloudDNSConf) | 否 | Object |  | DNS 配置 |
+| 参数名称                        | 是否必选 | 类型   | 默认值 | 函数         |
+| ------------------------------- | :------: | ------ | ------ | ------------ |
+| [functionConf](#函数配置)       |    否    | Object |        | 函数配置     |
+| [apigatewayConf](#API-网关配置) |    否    | Object |        | API 网关配置 |
+| [cloudDNSConf](#DNS-配置)       |    否    | Object |        | DNS 配置     |
 
 ### 函数配置
 

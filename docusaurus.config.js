@@ -106,14 +106,13 @@ module.exports = {
       {
         docs: {
           // It is recommended to set document id as docs home page (`docs/` path).
-          homePageId: 'website',
+          homePageId: 'index',
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
           editUrl: 'https://github.com/serverless-plus/website/edit/master/',
         },
         blog: {
           showReadingTime: true,
-          sidebarPath: require.resolve('./sidebars.js').blog,
           // Please change this to your repo.
           editUrl: 'https://github.com/serverless-plus/website/edit/master/',
         },

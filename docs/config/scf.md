@@ -1,7 +1,6 @@
 ---
-id: config-scf
 title: SCF Configuration
-sidebar_label: SCF
+sidebar_label: Configuration
 ---
 
 # 配置文档
@@ -22,13 +21,18 @@ inputs:
     namespace: abc //云函数命名空间
     role: exRole //云函数执行角色
     enableRoleAuth: true //赋予SCF 相关的角色权限，默认true
-    # 默认写法，新建特定命名的 cos bucket 并上传
+    # 1. 默认写法，新建特定命名的 cos bucket 并上传
     src: ./code
-    # 指定 bucket name 和文件的方式，直接上传 cos 中的文件部署云函数
+    # 2. src 为对象，并且制定忽略上传文件夹 node_modules
+    # src:
+    #   src: ./code
+    #   exclude:
+    #     - 'node_modules/**'
+    # 3. 指定 bucket name 和文件的方式，直接上传 cos 中的文件部署云函数
     # src:
     #    bucket: tinatest   # bucket name，当前会默认在bucket name后增加 appid 后缀, e.g. bucketname-appid
     #    key: 'code.zip'      # bucket key 指定存储桶内的文件
-    # 指定本地文件到 bucket
+    # 4. 指定本地文件到 bucket
     # src:
     #   bucket: tinatest   # bucket name
     #   src:         # 指定本地路径

@@ -1,6 +1,7 @@
 ---
 id: next
 title: Next.js
+sidebar_label: Introduction
 ---
 
 [![Serverless Nextjs Tencent Cloud](https://img.serverlesscloud.cn/2020224/1582553715762-next.js_%E9%95%BF.png)](http://serverless.com)
