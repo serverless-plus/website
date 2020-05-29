@@ -1,7 +1,7 @@
 ---
 id: index
-title: What's Serverless Components?
-sidebar_label: What
+title: What's Serverless Component?
+sidebar_label: What's Serverless Component
 ---
 
 [![Serverless Components](https://s3.amazonaws.com/public.assets.serverless.com/images/readme_serverless_components.gif)](http://serverless.com)

@@ -107,6 +107,18 @@ module.exports = {
           },
         ],
       },
+      {
+        CDN: [
+          {
+            id: 'cdn',
+            type: 'doc',
+          },
+          {
+            id: 'config/cdn',
+            type: 'doc',
+          },
+        ],
+      },
     ],
   },
 };
