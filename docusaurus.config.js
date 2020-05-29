@@ -35,6 +35,11 @@ module.exports = {
         {to: 'blog', label: 'Blog', position: 'left'},
         // Please keep GitHub link to the right for consistency.
         {
+          to: 'donate',
+          label: 'Donate',
+          position: 'right',
+        },
+        {
           href: 'https://github.com/serverless-plus/website',
           label: 'GitHub',
           position: 'right',
