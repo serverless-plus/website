@@ -8,6 +8,8 @@ sidebar_label: Introduction
 
 # 腾讯云 Nuxt.js Serverless Component
 
+简体中文 | [English](https://github.com/serverless-components/tencent-nuxtjs/blob/v2/README.en.md)
+
 ## 简介
 
 **腾讯云[Nuxt.js](https://github.com/nuxt/nuxt.js)组件** - 通过使用[**Tencent Serverless Framework**](https://github.com/serverless/components/tree/cloud) , 基于云上 Serverless 服务（如 API 网关、云函数等），实现“0”配置，便捷开发，极速部署采用 Nuxt.js 框架的网页应用，Nuxt.js 组件支持丰富的配置扩展，提供了目前便捷实用，开发成本低的网页应用项目的开发/托管能力。
@@ -25,11 +27,11 @@ sidebar_label: Introduction
 
 0. [**准备**](#0-准备)
 1. [**安装**](#1-安装)
-2. [**配置**](#2-配置)
-3. [**部署**](#3-部署)
-4. [**开发调试**](#4-开发调试)
-5. [**查看状态**](#5-查看部署状态)
-6. [**移除**](#6-移除)
+1. [**配置**](#2-配置)
+1. [**部署**](#3-部署)
+1. [**开发调试**](#4-开发调试)
+1. [**查看状态**](#5-查看部署状态)
+1. [**移除**](#6-移除)
 
 更多资源：
 
@@ -44,8 +46,8 @@ sidebar_label: Introduction
 首先，在本地创建根目录，并初始化一个 Nuxt.js 项目
 
 ```bash
-$ mkdir serverless-nuxtjs && cd serverless-nuxtjs
-$ npx create-nuxt-app src
+$ npx create-nuxt-app serverless-nuxtjs
+$ cd serverless-nuxtjs
 ```
 
 > 注意：本教程中的 Nuxt 项目使用 JavaScript 与 Npm 安装包进行构建，初始化项目的时候请选择相应的选项
@@ -66,7 +68,7 @@ $ npm install -g serverless
 $ touch serverless.yml
 ```
 
-```yaml
+```yml
 # serverless.yml
 component: nuxtjs # (必填) 组件名称，此处为nuxtjs
 name: nuxtjsDemo # (必填) 实例名称
@@ -76,7 +78,7 @@ stage: dev # (可选) 用于区分环境信息，默认值是 dev
 
 inputs:
   src:
-    src: ./src
+    src: ./
     exclude:
       - .env
   region: ap-guangzhou
@@ -88,7 +90,7 @@ inputs:
     environment: release
 ```
 
-- [更多配置](/docs/config/nuxt)
+- 点此查看[更多配置及说明](https://github.com/serverless-components/tencent-nextjs/tree/v2/docs/configure.md)
 
 ### 3. 部署
 
@@ -177,10 +179,72 @@ TENCENT_SECRET_KEY=123
 
 > 注意：海外 ip 登录时，需要在`.env`文件中添加`SERVERLESS_PLATFORM_VENDOR=tencent` ，使 sls 默认使用 tencent 组件
 
-### 更多组件
+## 更多组件
 
 可以在 [Serverless Components](https://github.com/serverless/components) repo 中查询更多组件的信息。
 
-### FAQ
+## 项目迁移 - 自定义 express 服务
 
-1. [为什么不需要入口文件了？](https://github.com/serverless-components/tencent-nuxtjs/issues/1)
+如果你的 Nuxt.js 项目本身运行就是基于 `express` 自定义服务的，那么你需要在项目中自定义入口文件 `sls.js`，需要参考你的服务启动文件进行修改，以下是一个模板文件：
+
+```js
+const path = require('path');
+const express = require('express');
+const {Nuxt} = require('nuxt');
+
+// not report route for custom monitor
+const noReportRoutes = ['/_next', '/static'];
+
+async function createServer(custom) {
+  const server = express();
+  // get next config
+  let configPath = path.join(__dirname, '..', 'nuxt.config.js');
+  if (custom) {
+    configPath = path.join(__dirname, 'nuxt.config.js');
+  }
+  const config = require(configPath);
+  config.dev = false;
+
+  // Init Nuxt.js
+  const nuxt = new Nuxt(config);
+  await nuxt.ready();
+
+  // Give nuxt middleware to express
+  // app.use(nuxt.render)
+  server.all('*', (req, res, next) => {
+    noReportRoutes.forEach((route) => {
+      if (req.path.indexOf(route) === 0) {
+        req.__SLS_NO_REPORT__ = true;
+      }
+    });
+    return nuxt.render(req, res, next);
+  });
+
+  // define binary type for response
+  // if includes, will return base64 encoded, very useful for images
+  server.binaryTypes = ['*/*'];
+
+  return server;
+}
+
+module.exports = createServer;
+```
+
+## 自定义监控
+
+当在部署 Next.js 应用时，如果 `serverless.yml` 中未指定 `role`，默认会尝试绑定 `QCS_SCFExcuteRole`，并且开启自定义监控，帮助用户收集应用监控指标。对于为自定义入口文件的项目，会默认上报除含有 `/_next` 和 `/static` 的路由。如果你想自定义上报自己的路由性能，那么可以自定义 `sls.js` 入口文件，对于无需上报的路由，在 express 服务的 `req` 对象上添加 `__SLS_NO_REPORT__` 属性值为 `true` 即可。比如：
+
+```js
+server.get('/no-report', (req, res) => {
+  req.__SLS_NO_REPORT__ = true;
+  return handle(req, res);
+});
+```
+
+那么用户在访问 `GET /no-report` 路由时，就不会上报自定义监控指标。
+
+## License
+
+MIT License
+
+Copyright (c) 2020 Tencent Cloud, Inc.

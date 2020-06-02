@@ -8,6 +8,8 @@ sidebar_label: Introduction
 
 # 腾讯云 Egg.js Serverless Component
 
+简体中文 | [English](https://github.com/serverless-components/tencent-egg/blob/master/README.en.md)
+
 ## 简介
 
 腾讯云 [Egg.js](https://github.com/eggjs/egg) Serverless Component。
@@ -25,9 +27,8 @@ sidebar_label: Introduction
 #### 初始化 Egg 项目
 
 ```bash
-$ mkdir serverless-egg && cd serverless-egg
-$ npm init egg src --type=simple
-$ cd src && npm install
+$ npm init egg serverless-egg --type=simple
+$ cd serverless-egg && npm install
 ```
 
 #### 修改 Egg 配置
@@ -59,7 +60,7 @@ $ npm install -g serverless
 $ touch serverless.yml
 ```
 
-```yaml
+```yml
 # serverless.yml
 
 org: orgDemo
@@ -69,7 +70,10 @@ component: egg@0.0.0-dev
 name: eggDemo
 
 inputs:
-  src: ./src
+  src:
+    src: ./
+    exclude:
+      - .env
   region: ap-guangzhou
   functionName: eggDemo
   runtime: Nodejs10.15
@@ -80,7 +84,7 @@ inputs:
     environment: release
 ```
 
-- [更多配置](/docs/config/egg)
+- [更多配置](https://github.com/serverless-components/tencent-egg/tree/v2/docs/configure.md)
 
 ### 3. 部署
 

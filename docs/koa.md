@@ -8,6 +8,8 @@ sidebar_label: Introduction
 
 # 腾讯云 Koa 组件
 
+简体中文 | [English](https://github.com/serverless-components/tencent-koa/blob/v2/README.en.md)
+
 ## 简介
 
 使用腾讯云 Koa 组件，可快速的在腾讯云创建，配置和管理一个 [Koa 框架](https://koajs.com/) 服务。
@@ -24,7 +26,7 @@ sidebar_label: Introduction
 
 通过 npm 安装 serverless
 
-```console
+```bash
 $ npm install -g serverless
 ```
 
@@ -32,20 +34,23 @@ $ npm install -g serverless
 
 本地创建 `serverless.yml` 文件：
 
-```console
+```bash
 $ touch serverless.yml
 ```
 
 初始化一个新的 npm 包，并安装 koa:
 
-```
-npm init              # 创建后持续回车
-npm i --save koa  # 安装 koa
+```bash
+# 创建后持续回车
+$ npm init
+
+# 安装 koa
+$ npm i --save koa
 ```
 
 创建一个 `sls.js`文件，并在其中创建您的 koa App：
 
-```console
+```bash
 $ touch sls.js
 ```
 
@@ -69,7 +74,7 @@ module.exports = app;
 
 在 serverless.yml 中进行如下配置
 
-```yaml
+```yml
 # serverless.yml
 
 org: orgDemo # (optional) serverless dashboard org. default is the first org you created during signup.
@@ -80,7 +85,7 @@ name: koaDemo # (required) name of your koa component instance.
 
 inputs:
   src:
-    src: ./src # (optional) path to the source folder. default is a hello world app.
+    src: ./ # (optional) path to the source folder. default is a hello world app.
     exclude:
       - .env
   region: ap-guangzhou
@@ -92,7 +97,7 @@ inputs:
     environment: release
 ```
 
-- [更多配置](/docs/config/koa)
+- [点击此处查看配置文档](https://github.com/serverless-components/tencent-koa/blob/v2/docs/configure.md)
 
 ### 4. 部署
 
@@ -120,7 +125,7 @@ $ sls remove
 
 当前默认支持 CLI 扫描二维码登录，如您希望配置持久的环境变量/秘钥信息，也可以本地创建 `.env` 文件
 
-```console
+```bash
 $ touch .env # 腾讯云的配置信息
 ```
 
@@ -128,7 +133,7 @@ $ touch .env # 腾讯云的配置信息
 
 如果没有腾讯云账号，可以在此[注册新账号](https://cloud.tencent.com/register)。
 
-如果已有腾讯云账号，可以在[API 密钥管理](https://console.cloud.tencent.com/cam/capi)中获取 `SecretId` 和`SecretKey`.
+如果已有腾讯云账号，可以在[API 密钥管理](https://bash.cloud.tencent.com/cam/capi)中获取 `SecretId` 和`SecretKey`.
 
 ```
 # .env
@@ -139,3 +144,9 @@ TENCENT_SECRET_KEY=123
 ### 还支持哪些组件？
 
 可以在 [Serverless Components](https://github.com/serverless/components) repo 中查询更多组件的信息。
+
+## License
+
+MIT License
+
+Copyright (c) 2020 Tencent Cloud, Inc.

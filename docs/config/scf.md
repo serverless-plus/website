@@ -3,11 +3,9 @@ title: SCF Configuration
 sidebar_label: Configuration
 ---
 
-# 配置文档
-
 ## 全部配置
 
-```yaml
+```yml
 # serverless.yml
 
 component: scf  # (必选) 组件名称，在该实例中为scf
@@ -17,11 +15,11 @@ app: scfApp # (可选) 用于记录组织信息. 默认与name相同.
 stage: dev # (可选) 用于区分环境信息，默认值是 dev
 
 inputs:
-    name: myFunction  //云函数名称
-    namespace: abc //云函数命名空间
-    role: exRole //云函数执行角色
-    enableRoleAuth: true //赋予SCF 相关的角色权限，默认true
-    # 1. 默认写法，新建特定命名的 cos bucket 并上传
+    name: myFunction  # 云函数名称
+    namespace: abc # 云函数命名空间
+    role: exRole # 云函数执行角色
+    enableRoleAuth: true # 默认会尝试绑定 SCF_QcsRole 角色，如果不需要配置成 false 即可
+     # 1. 默认写法，新建特定命名的 cos bucket 并上传
     src: ./code
     # 2. src 为对象，并且制定忽略上传文件夹 node_modules
     # src:
@@ -156,20 +154,18 @@ inputs:
 | --- | --- | --- | --- |
 | name | 是 |  | 创建的函数名称，函数名称支持 26 个英文字母大小写、数字、连接符和下划线，第一个字符只能以字母开头，最后一个字符不能为连接符或者下划线，名称长度 2-60 |
 | namesapce | 否 | default | 命名空间。默认为 default。 |
-| role | 是 |  | 函数绑定的角色 |
-| enableRoleAuth | 是 | true | 赋予 SCF 相关的角色权限。默认值为 `true`。 |
-| src | 是 |  | 函数代码路径。如果是对象,配置参数参考 [执行目录](#src-object) |
+| role | 否 |  | 函数绑定的角色 |
+| enableRoleAuth | 是 | true | 默认会尝试绑定 SCF_QcsRole 角色，如果不需要配置成 false 即可 |
+| src | 是 |  | 函数代码路径。如果是对象,配置参数参考 [执行目录](#执行目录) |
 | handler | 是 |  | 函数处理方法名称，名称格式支持 "文件名称.方法名称" 形式，文件名称和函数名称之间以"."隔开，文件名称和函数名称要求以字母开始和结尾，中间允许插入字母、数字、下划线和连接符，文件名称和函数名字的长度要求是 2-60 个字符 |
-| runtime | 是 |  | 函数运行环境，目前仅支持 Python2.7，Python3.6，Nodejs6.10，Nodejs8.9，Nodejs10.15， PHP5， PHP7，Golang1 和 Java8，默认 Python2.7 |
+| runtime | 是 |  | 函数运行环境，目前仅支持 Python2.7，Python3.6，Nodejs6.10，Nodejs8.9，Nodejs10.15， PHP5， PHP7，Go1 和 Java8，默认 Python2.7 |
 | region | 否 | ap-guangzhou | 云函数所在区域。详见产品支持的 [地域列表](https://cloud.tencent.com/document/api/583/17238#.E5.9C.B0.E5.9F.9F.E5.88.97.E8.A1.A8)。 |
 | description | 否 |  | 函数描述,最大支持 1000 个英文字母、数字、空格、逗号、换行符和英文句号，支持中文 |
 | memorySize | 否 | 128M | 函数运行时内存大小，默认为 128M，可选范围 64、128MB-3072MB，并且以 128MB 为阶梯 |
 | timeout | 否 | 3S | 函数最长执行时间，单位为秒，可选值范围 1-900 秒，默认为 3 秒 |
-| exclude | 否 |  | 不包含的文件 |
-| include | 否 |  | 包含的文件, 如果是相对路径，是相对于 serverless.yml 的路径 |
-| [environment](https://github.com/serverless-components/tencent-scf/blob/master/docs/configure.md#environment-param-description) | 否 |  | 函数的环境变量 |
-| [vpcConfig](https://github.com/serverless-components/tencent-scf/blob/master/docs/configure.md#vpcConfig-param-description) | 否 |  | 函数的私有网络配置，配置参数参考[私有网络]() |
-| layers | 否 |  | 云函数绑定的 layer, 配置参数参考[层配置](https://github.com/serverless-components/tencent-scf/blob/master/docs/configure.md#Layer) |
+| [environment](#环境变量) | 否 |  | 函数的环境变量 |
+| [vpcConfig](#私有网络) | 否 |  | 函数的私有网络配置，配置参数参考[私有网络]() |
+| layers | 否 |  | 云函数绑定的 layer, 配置参数参考[层配置](#层配置) |
 | deadLetter | 否 |  | 死信队列参数 |
 | cls | 否 |  | 函数日志 |
 | eip | 否 | false | 固定出口 IP。默认为 false，即不启用 |
@@ -275,6 +271,7 @@ inputs:
 | --- | --- | :-: | :-- | :-- |
 | serviceId | 否 | String |  | Apigw Service ID（不传入则新建一个 Service） |
 | protocols | 否 | String[] | ['http'] | 前端请求的类型，如 http，https，http 与 https |
+| serviceName | 否 | String |  | Apigw API 名称。如果不传递则默认自动新建一个。 |
 | description | 否 | String |  | Apigw API 描述 |
 | environment | 是 | String | release | 发布的环境，填写 `release`、`test` 或 `prepub`，不填写默认为`release` |
 | endpoints | 是 | Object[] |  | 参考 endpoint 参数。 |
