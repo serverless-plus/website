@@ -136,7 +136,7 @@ $ cd example
 执行如下命令，安装 express 应用的对应依赖
 
 ```bash
-$ cd src && npm install
+$ npm install
 ```
 
 在 serverless.yml 文件下的目录中运行 serverless deploy 进行 express 项目的部署：
@@ -184,7 +184,7 @@ Serverless Components 可以实现高阶应用场景，例如网站、博客或�
 
 org: acme # Your Org
 app: ecommerce # Your App
-component: tencent-website # A Component in the Registry
+component: website # A Component in the Registry
 name: my-website # The name of your Component Instance
 
 inputs: # The configuration the Component accepts
