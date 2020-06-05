@@ -119,6 +119,18 @@ module.exports = {
           },
         ],
       },
+      {
+        COS: [
+          {
+            id: 'cos',
+            type: 'doc',
+          },
+          {
+            id: 'config/cos',
+            type: 'doc',
+          },
+        ],
+      },
     ],
   },
 };
