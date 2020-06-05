@@ -90,7 +90,7 @@ inputs:
     environment: release
 ```
 
-- 点此查看[更多配置及说明](https://github.com/serverless-components/tencent-nextjs/tree/v2/docs/configure.md)
+- [更多配置](/docs/config/nuxt)
 
 ### 3. 部署
 

@@ -72,7 +72,7 @@ inputs:
 
 PostgreSQL 组件支持 0 配置部署，也就是可以直接通过配置文件中的默认值进行部署。但你依然可以修改更多可选配置来进一步开发该项目。
 
-- [更多配置](https://github.com/serverless-components/tencent-postgresql/tree/master/docs/configure.md)
+- [更多配置](/docs/config/postgresql)
 
 ### 4. 账号配置
 

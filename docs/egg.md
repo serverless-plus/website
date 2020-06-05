@@ -66,7 +66,7 @@ $ touch serverless.yml
 org: orgDemo
 app: appDemo
 stage: dev
-component: egg@0.0.0-dev
+component: egg
 name: eggDemo
 
 inputs:
@@ -84,7 +84,7 @@ inputs:
     environment: release
 ```
 
-- [更多配置](https://github.com/serverless-components/tencent-egg/tree/v2/docs/configure.md)
+- [更多配置](/docs/config/egg)
 
 ### 3. 部署
 

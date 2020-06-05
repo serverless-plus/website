@@ -8,8 +8,6 @@ sidebar_label: Introduction
 
 # 腾讯云 Koa 组件
 
-简体中文 | [English](https://github.com/serverless-components/tencent-koa/blob/v2/README.en.md)
-
 ## 简介
 
 使用腾讯云 Koa 组件，可快速的在腾讯云创建，配置和管理一个 [Koa 框架](https://koajs.com/) 服务。
@@ -97,7 +95,7 @@ inputs:
     environment: release
 ```
 
-- [点击此处查看配置文档](https://github.com/serverless-components/tencent-koa/blob/v2/docs/configure.md)
+- [更多配置](/docs/config/koa)
 
 ### 4. 部署
 
