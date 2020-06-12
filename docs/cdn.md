@@ -45,11 +45,14 @@ app: appDemo
 stage: dev
 
 inputs:
-  domain: abc.com
-  async: true
-  refreshCdn:
-    urls:
-      - https://abc.com
+  area: overseas
+  domain: fullstack.yugasun.com
+  origin:
+    origins:
+      - up6pwd9-89hm718-xxx.cos-website.ap-guangzhou.myqcloud.com
+    originType: cos
+    originPullProtocol: https
+  serviceType: web
   forceRedirect:
     switch: on
     redirectType: https
@@ -59,9 +62,11 @@ inputs:
     http2: on
     certInfo:
       certId: 'abc'
+      # certificate: 'xxx'
+      # privateKey: 'xxx'
 ```
 
-- [更多配置](/docs/config/cdn)
+- [更多配置](./docs/configure.md)
 
 ### 3. 部署
 
