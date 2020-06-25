@@ -8,7 +8,7 @@ sidebar_label: Introduction
 
 <br/>
 
-**腾讯云 Express 组件** ⎯⎯⎯ 通过使用 [Tencent Serverless Framework](https://github.com/serverless/components/tree/cloud)，基于云上 Serverless 服务（如网关、云函数等），实现“0”配置，便捷开发，极速部署你的 express 应用，Express 组件支持丰富的配置扩展，提供了目前最易用、低成本并且弹性伸缩的 Experss 项目开发/托管能力。 <br/>
+**腾讯云 express 组件** ⎯⎯⎯ 通过使用 [Tencent Serverless Framework](https://github.com/serverless/components/tree/cloud)，基于云上 Serverless 服务（如网关、云函数等），实现“0”配置，便捷开发，极速部署你的 express 应用，express 组件支持丰富的配置扩展，提供了目前最易用、低成本并且弹性伸缩的 Experss 项目开发/托管能力。 <br/>
 
 特性介绍：
 
@@ -80,9 +80,9 @@ $ npm install
 
 ### 4. 配置
 
-Express 组件支持 0 配置部署，也就是可以直接通过配置文件中的默认值进行部署。但你依然可以修改更多可选配置来进一步开发该 Express 项目。
+express 组件支持 0 配置部署，也就是可以直接通过配置文件中的默认值进行部署。但你依然可以修改更多可选配置来进一步开发该 express 项目。
 
-以下是 Express 组件的 `serverless.yml`完整配置说明：
+以下是 express 组件的 `serverless.yml`完整配置说明：
 
 ```yml
 # serverless.yml
@@ -113,7 +113,7 @@ inputs:
 
 ### 5. 开发调试
 
-部署了 Express.js 应用后，可以通过开发调试能力对该项目进行二次开发，从而开发一个生产应用。在本地修改和更新代码后，不需要每次都运行 `serverless deploy` 命令来反复部署。你可以直接通过 `serverless dev` 命令对本地代码的改动进行检测和自动上传。
+部署了 express 应用后，可以通过开发调试能力对该项目进行二次开发，从而开发一个生产应用。在本地修改和更新代码后，不需要每次都运行 `serverless deploy` 命令来反复部署。你可以直接通过 `serverless dev` 命令对本地代码的改动进行检测和自动上传。
 
 可以通过在 `serverless.yml`文件所在的目录下运行 `serverless dev` 命令开启开发调试能力。
 
@@ -131,7 +131,7 @@ $ serverless info
 
 ### 7. 移除
 
-在`serverless.yml`文件所在的目录下，通过以下命令移除部署的 Express 服务。移除后该组件会对应删除云上部署时所创建的所有相关资源。
+在`serverless.yml`文件所在的目录下，通过以下命令移除部署的 express 服务。移除后该组件会对应删除云上部署时所创建的所有相关资源。
 
 ```
 $ serverless remove
@@ -141,10 +141,10 @@ $ serverless remove
 
 ## 架构说明
 
-Express 组件将在腾讯云账户中使用到如下 Serverless 服务：
+express 组件将在腾讯云账户中使用到如下 Serverless 服务：
 
 - [x] **API 网关** - API 网关将会接收外部请求并且转发到 SCF 云函数中。
-- [x] **SCF 云函数** - 云函数将承载 Express.js 应用。
+- [x] **SCF 云函数** - 云函数将承载 express 应用。
 - [x] **CAM 访问控制** - 该组件会创建默认 CAM 角色用于授权访问关联资源。
 - [x] **COS 对象存储** - 为确保上传速度和质量，云函数压缩并上传代码时，会默认将代码包存储在特定命名的 COS 桶中。
 - [x] **SSL 证书服务** - 如果你在 yaml 文件中配置了 `apigatewayConf.customDomains` 字段，需要做自定义域名绑定并开启 HTTPS 时，也会用到证书管理服务和域名服务。Serverless Framework 会根据已经备案的域名自动申请并配置 SSL 证书。
